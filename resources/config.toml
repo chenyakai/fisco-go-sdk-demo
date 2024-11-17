@@ -1,0 +1,32 @@
+
+[Network]
+#type rpc or channel
+Type="channel"
+# 三个节点证书，使用相对路径
+CAFile="fiscobcos/sdk/ca.crt"
+Cert="fiscobcos/sdk/sdk.crt"
+Key="fiscobcos/sdk/sdk.key"
+# if the certificate context is not empty, use it, otherwise read from the certificate file
+# multi lines use triple quotes
+CAContext=''''''
+KeyContext=''''''
+CertContext=''''''
+
+[[Network.Connection]]
+NodeURL="192.168.81.128:20200"  # 节点的地址
+GroupID=1  # 群组id
+# [[Network.Connection]]
+# NodeURL="127.0.0.1:20200"
+# GroupID=2
+
+[Account]
+# only support PEM format for now
+KeyFile="fiscobcos/accounts/webase_admin.pem"  #使用什么账户调用合约
+DynamicKey=false
+
+[Chain]
+ChainID=1 #链id
+SMCrypto=false # 非国密
+
+[log]
+Path="./"
