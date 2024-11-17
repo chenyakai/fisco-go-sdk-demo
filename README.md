@@ -2,6 +2,7 @@
 
 #### 介绍
 FISCOBCOS中的GoSDK操作---(搭建项目版本)
+基于FISCOBCOS提供的GoSDK，再次封装使用，简化官方文档中的操作。
 
 #### 软件架构
 软件架构说明
@@ -9,15 +10,11 @@ FISCOBCOS中的GoSDK操作---(搭建项目版本)
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+更多详情，请看项目中的doc文件夹的pdf文档
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+更多详情，请看项目中的doc文件夹的pdf文档
 
 #### 参与贡献
 
