@@ -1,71 +1,80 @@
-# fisco-go-sdk-demo
-
-#### 介绍
-FISCOBCOS中的GoSDK操作---(搭建项目版本)
-
-基于FISCOBCOS提供的GoSDK，再次封装使用，简化官方文档中的操作。
-
-#### 软件架构
-软件架构说明
+# FISCOBCOS中的GoSDK操作---(搭建项目版本)
 
 
-#### 安装教程
-
-更多详情，如下所示：
-
-#### 使用说明
 
 [TOC]
 
-​ 文档操作记录
+​																							**文档操作记录**
 
-内容	作者	时间	版本号	联系方式
-文档创建	陈雅凯，高俭豪，谭俊	2024-11-11	1.0	email:2040575063@qq.com
-文档更新	陈雅凯，高俭豪，谭俊	2024-11-13	2.0	email:2040575063@qq.com
-文档更新	陈雅凯，高俭豪，谭俊	2024-11-16	3.0	email:2040575063@qq.com
-一，GoWEB项目创建：
+| 内容     | 作者                 | 时间       | 版本号 | 联系方式                |
+| -------- | -------------------- | ---------- | ------ | ----------------------- |
+| 文档创建 | 陈雅凯，高俭豪，谭俊 | 2024-11-11 | 1.0    | email:2040575063@qq.com |
+| 文档更新 | 陈雅凯，高俭豪，谭俊 | 2024-11-13 | 2.0    | email:2040575063@qq.com |
+| 文档更新 | 陈雅凯，高俭豪，谭俊 | 2024-11-16 | 3.0    | email:2040575063@qq.com |
+
+背景：基于FISCOBCOS提供的GoSDK，再次封装使用，简化官方文档中的操作。
+
+## 一，GoWEB项目创建：
+
 1.新建项目：
 
-image20241111211334011
+![image-20241111211334011](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111211334011.png)
+
+
 
 2.项目路径（随自己心意）：
 
-image20241113215548137
+![image-20241113215548137](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113215548137.png)
+
+
 
 3.生成成功：
 
-image20241113215722560
+![image-20241113215722560](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113215722560.png)
 
-二，项目书写：
-1.创建目录
-image20241113220903432
 
-2.合约配置文件的读取
+
+## 二，项目书写：
+
+### 1.创建目录
+
+![image-20241113220903432](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113220903432.png)
+
+
+
+### 2.合约配置文件的读取
+
 书写配置文件settings.yaml(书写时，输入自己合约对应的name(合约名称),address,abi,bin。bin可以填写，也可以不用填写) ：
 
+```yaml
 contracts:
-contract1: (这里的设计只是一个键对应一个结构体数据)
-name:
-address:
-abi:
-bin:
-contract2:(这里的设计只是一个键对应一个结构体数据)
-name:
-address:
-abi:
-bin:
-image20241113221418154
+ contract1: (这里的设计只是一个键对应一个结构体数据)
+  name:
+  address:
+  abi:
+  bin:
+ contract2:(这里的设计只是一个键对应一个结构体数据)
+  name:
+  address:
+  abi:
+  bin:
+```
+
+![image-20241113221418154](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113221418154.png)
 
 ​
 
-注意事项：
+**注意事项：**
 
-​ 在WeBASE-Front上编译合约获得abi和bin,部署合约获得address。
+​			在WeBASE-Front上编译合约获得abi和bin,部署合约获得address。
 
+
+
+```solidity
 pragma solidity >=0.4.24 <0.6.11;
 
 contract HelloWorld {
-string name;
+    string name;
 
     constructor() public {
         name = "Hello, World!";
@@ -80,8 +89,13 @@ string name;
         return true;
     }
 }
-image20241111233515558
+```
 
+![image-20241111233515558](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111233515558.png)
+
+
+
+```solidity
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.6.10;
 pragma experimental ABIEncoderV2;
@@ -195,111 +209,143 @@ contract Anonoucement {
         return result;
     }
 }
-image20241113221832674
+```
+
+![image-20241113221832674](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113221832674.png)
 
 ​
 
-（1）这里的abi要将其中的 " 替换成 \",可以打开一个记事本,放入abi,使用快捷键ctrl+f, 全部替换。
+（1）这里的abi要将其中的 " 替换成  \",可以打开一个记事本,放入abi,使用快捷键ctrl+f, 全部替换。
 
-image20241111232005034
+![image-20241111232005034](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111232005034.png)
 
-​ （2）也可以不用替换，直接将abi赋值给global.Config.Fisco.Abi。
+​		（2）也可以不用替换，直接将abi赋值给global.Config.Fisco.Abi。
+
+
 
 创建结构体：
 
+```go
 package config
 
 type Contract struct {
-Name    string `yaml:"name"`
-Address string `yaml:"address"`
-Abi     string `yaml:"abi"`
-Bin     string `yaml:"bin"`
+	Name    string `yaml:"name"`
+	Address string `yaml:"address"`
+	Abi     string `yaml:"abi"`
+	Bin     string `yaml:"bin"`
 }
-image20241113222325831
+```
 
+![image-20241113222325831](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222325831.png)
+
+
+
+```go
 package config
 
 type Config struct {
-Contract map[string]*Contract `yaml:"contracts"`
+	Contract map[string]*Contract `yaml:"contracts"`
 }
-image20241116141328182
+```
+
+![image-20241116141328182](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116141328182.png)
+
+
 
 创建全局变量：
 
+```go
 package global
 
 import "fisco-go-sdk/config"
 
 var (
-Config *config.Config
+	Config *config.Config
 )
-image20241113222811906
+```
+
+![image-20241113222811906](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222811906.png)
+
+
 
 拉取工具包：
 
-image20241113222920011
+![image-20241113222920011](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222920011.png)
+
+
 
 读取配置文件:
 
+```go
 package core
 
 import (
-"fisco-go-sdk-demo/config"
-"fisco-go-sdk-demo/global"
-"fmt"
-"gopkg.in/yaml.v3"
-"io/ioutil"
-"log"
+	"fisco-go-sdk-demo/config"
+	"fisco-go-sdk-demo/global"
+	"fmt"
+	"gopkg.in/yaml.v3"
+	"io/ioutil"
+	"log"
 )
 
 // InitConf 读取yaml文件配置
 func InitConf() {
-const ConfigFile = "resources/settings.yaml"
-c := &config.Config{}
-yamlConf, err := ioutil.ReadFile(ConfigFile)
-if err != nil {
-panic(fmt.Errorf("get yamlConf error: %s", err))
+	const ConfigFile = "resources/settings.yaml"
+	c := &config.Config{}
+	yamlConf, err := ioutil.ReadFile(ConfigFile)
+	if err != nil {
+		panic(fmt.Errorf("get yamlConf error: %s", err))
+	}
+	err = yaml.Unmarshal(yamlConf, c)
+	if err != nil {
+		log.Fatalf("config Init Unmarshal: %v", err)
+	}
+	log.Println("config yamlFile load Init success")
+	global.Config = c
 }
-err = yaml.Unmarshal(yamlConf, c)
-if err != nil {
-log.Fatalf("config Init Unmarshal: %v", err)
-}
-log.Println("config yamlFile load Init success")
-global.Config = c
-}
-image20241113223428460
+```
 
-3.连接FISCOBCOS的网络配置文件读取
+![image-20241113223428460](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113223428460.png)
+
+
+
+### 3.连接FISCOBCOS的网络配置文件读取
+
 配置fiscobcos链的连接：
 
-​ 生成私钥：
+​	生成私钥：
 
-image20241111221322139
+![image-20241111221322139](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221322139.png)
 
-image20241111221134898
+![image-20241111221134898](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221134898.png)
 
-​ 或者从WeBASE-Front上，拿取，下载到项目目录的（fisco-go-sdk-demo/fiscobcos/accounts）中：
+​	**或者从WeBASE-Front上，拿取，下载到项目目录的（fisco-go-sdk-demo/fiscobcos/accounts）中：**
 
-​ 下载完之后，记得将私钥文件改个名字（与config.toml中的配置项保持一致）。
+​    **下载完之后，记得将私钥文件改个名字（与config.toml中的配置项保持一致）。**
 
-​ image20241114202357687
+​	![image-20241114202357687](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114202357687.png)
 
-image20241114202442566
+![image-20241114202442566](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114202442566.png)
 
-注意：
+**注意：**
 
-​ 这里导出后下载到自己的项目目录fisco-go-sdk-demo/fiscobcos/accounts）中。
+​	**这里导出后下载到自己的项目目录fisco-go-sdk-demo/fiscobcos/accounts）中。**
 
-​ 记得改文件名称（与config.toml中的配置项保持一致）。
+​	**记得改文件名称（与config.toml中的配置项保持一致）。**
 
-​ 拷贝节点证书文件：
 
-image20241113223623764
 
-​ 例如：image20241111221731453
+​	拷贝节点证书文件：
 
-​ 网络连接配置文件（有要修改的部分，认真看图）：
+![image-20241113223623764](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113223623764.png)
 
+​	例如：![image-20241111221731453](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221731453.png)
+
+
+
+​	网络连接配置文件（有要修改的部分，认真看图）：
+
+```toml
 [Network]
 #type rpc or channel
 Type="channel"
@@ -331,54 +377,71 @@ SMCrypto=false # 非国密
 
 [log]
 Path="./"
-image20241113224522760
+```
+
+![image-20241113224522760](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113224522760.png)
+
+
 
 拉取工具包：
 
-image20241113224815041
+![image-20241113224815041](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113224815041.png)
+
+
 
 创建结构体：
 
+```go
 package config
 
 import (
-"github.com/FISCO-BCOS/go-sdk/abi/bind"
-"github.com/FISCO-BCOS/go-sdk/client"
+	"github.com/FISCO-BCOS/go-sdk/abi/bind"
+	"github.com/FISCO-BCOS/go-sdk/client"
 )
 
 type GoSdk struct {
-Client   *client.Client                 `json:"client"`
-Contract map[string]*bind.BoundContract `json:"contract"`
+	Client   *client.Client                 `json:"client"`
+	Contract map[string]*bind.BoundContract `json:"contract"`
 }
 
-image20241115100003465
+```
+
+![image-20241115100003465](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241115100003465.png)
+
+
 
 加入全局变量：
 
+```go
 package global
 
 import "fisco-go-sdk-demo/config"
 
 var (
-Config *config.Config
-GoSdk  config.GoSdk
+	Config *config.Config
+	GoSdk  config.GoSdk
 )
-image20241115100112903
+```
+
+![image-20241115100112903](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241115100112903.png)
+
+
 
 初始化GoSDK对象：
 
+```go
 package core
 
 import (
-"fisco-go-sdk-demo/global"
-"fmt"
-"github.com/FISCO-BCOS/go-sdk/abi"
-"github.com/FISCO-BCOS/go-sdk/abi/bind"
-"github.com/FISCO-BCOS/go-sdk/client"
-"github.com/FISCO-BCOS/go-sdk/conf"
-"github.com/ethereum/go-ethereum/common"
-"log"
-"strings"
+	"fisco-go-sdk-demo/global"
+	"fmt"
+	"github.com/FISCO-BCOS/go-sdk/abi"
+	"github.com/FISCO-BCOS/go-sdk/abi/bind"
+	"github.com/FISCO-BCOS/go-sdk/client"
+	"github.com/FISCO-BCOS/go-sdk/conf"
+	"github.com/ethereum/go-ethereum/common"
+	"log"
+	"strings"
 )
 
 /*
@@ -386,19 +449,19 @@ import (
 全局初始化client对象
 */
 func InitClient() {
-configs, err := conf.ParseConfigFile("resources/config.toml")
-if err != nil {
-log.Fatal("resources.ParseConfigFile ERR==>", err)
-}
-config := &configs[0]
-clientObj, ok := client.Dial(config)
-if ok != nil {
-log.Fatal("client.Dial ERR===>", ok)
-}
-global.GoSdk.Client = clientObj
-//开辟空间
-global.GoSdk.Contract = make(map[string]*bind.BoundContract)
-fmt.Println("Client初始化完成")
+	configs, err := conf.ParseConfigFile("resources/config.toml")
+	if err != nil {
+		log.Fatal("resources.ParseConfigFile ERR==>", err)
+	}
+	config := &configs[0]
+	clientObj, ok := client.Dial(config)
+	if ok != nil {
+		log.Fatal("client.Dial ERR===>", ok)
+	}
+	global.GoSdk.Client = clientObj
+	//开辟空间
+	global.GoSdk.Contract = make(map[string]*bind.BoundContract)
+	fmt.Println("Client初始化完成")
 }
 
 /**
@@ -419,34 +482,40 @@ func InitSession(name string) {
 构造合约操作对象
 */
 func bindContract(ABI string, address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-parsed, err := abi.JSON(strings.NewReader(ABI))
-if err != nil {
-fmt.Println(err)
-return nil, err
-}
-return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
+	parsed, err := abi.JSON(strings.NewReader(ABI))
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
 }
 
-image20241116142242111
+```
 
-4.编写交易组装器
+![image-20241116142242111](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116142242111.png)
+
+
+
+### 4.编写交易组装器
+
 书写公用发送交易组装器：
 
+```go
 package utils
 
 import (
-"fisco-go-sdk-demo/global"
-"fmt"
-"github.com/FISCO-BCOS/go-sdk/abi"
-"github.com/ethereum/go-ethereum/common"
-"strings"
+	"fisco-go-sdk-demo/global"
+	"fmt"
+	"github.com/FISCO-BCOS/go-sdk/abi"
+	"github.com/ethereum/go-ethereum/common"
+	"strings"
 )
 
 /*
 公用发送交易组装器
 */
 func SendTransaction(name, method string, params ...interface{}) any {
-_, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTransactOpts(), method, params...)
+	_, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTransactOpts(), method, params...)
 
 	if ok != nil {
 		fmt.Println("txError=>", ok)
@@ -470,34 +539,40 @@ _, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTr
 
 // SendCall 获取链上信息
 func SendCall(name, method string, out interface{}, params ...interface{}) any {
-err := global.GoSdk.Contract[name].Call(global.GoSdk.Client.GetCallOpts(), out, method, params...)
-if err != nil {
-fmt.Println("SendCall err==>", err)
+	err := global.GoSdk.Contract[name].Call(global.GoSdk.Client.GetCallOpts(), out, method, params...)
+	if err != nil {
+		fmt.Println("SendCall err==>", err)
+	}
+	return out
 }
-return out
-}
-image20241116142547071
+```
 
-5.HelloWorld的调用
+![image-20241116142547071](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116142547071.png)
+
+
+
+### 5.HelloWorld的调用
+
 在main函数中调用WeBASE-Front上的合约：
 
+```go
 package main
 
 import (
-"fisco-go-sdk-demo/core"
-"fisco-go-sdk-demo/fiscobcos/utils"
-"fmt"
+	"fisco-go-sdk-demo/core"
+	"fisco-go-sdk-demo/fiscobcos/utils"
+	"fmt"
 )
 
 const (
-Test_HelloWorld   = "contract1"
-Test_Announcement = "contract2"
+	Test_HelloWorld   = "contract1"
+	Test_Announcement = "contract2"
 )
 
 func TestHelloWorld() {
-//获取string类型
-s1 := new(string)
-utils.SendCall(Test_HelloWorld, "get", s1)
+	//获取string类型
+	s1 := new(string)
+	utils.SendCall(Test_HelloWorld, "get", s1)
 
 	//更改string类型
 	transaction := utils.SendTransaction(Test_HelloWorld, "set", "Hello,FISCO-BCOS")
@@ -520,48 +595,58 @@ func main() {
 	TestHelloWorld()
 
 }
-image20241116144852639
+```
+
+![image-20241116144852639](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116144852639.png)
+
+
 
 启动项目：
 
-​ 注意事项：
+​	注意事项：
 
-​ （1）启动程序时，如果报错了，执行go mod tidy。
+​	（1）启动程序时，如果报错了，执行go mod tidy。
 
-​ （2）如果还是报错，根据报错信息拉取对应的工具包。
+​	（2）如果还是报错，根据报错信息拉取对应的工具包。
 
-image20241116150924721
+![image-20241116150924721](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150924721.png)
 
-6.Anonoucement的调用
+
+
+### 6.Anonoucement的调用
+
+
+
 addAnouncement（添加公告）功能测试：
 
+```go
 package main
 
 import (
-"fisco-go-sdk-demo/core"
-"fisco-go-sdk-demo/fiscobcos/utils"
-"fmt"
-"math/big"
-"time"
+	"fisco-go-sdk-demo/core"
+	"fisco-go-sdk-demo/fiscobcos/utils"
+	"fmt"
+	"math/big"
+	"time"
 )
 
 const (
-Test_HelloWorld   = "contract1"
-Test_Announcement = "contract2"
+	Test_HelloWorld   = "contract1"
+	Test_Announcement = "contract2"
 )
 
 func main() {
-core.InitConf()
-core.InitClient()
-core.InitSession(Test_Announcement)
-TestAnnouncement()
+	core.InitConf()
+	core.InitClient()
+	core.InitSession(Test_Announcement)
+	TestAnnouncement()
 }
 
 func TestAnnouncement() {
-//addAnouncement  添加公告
-now := time.Now()
-timestamp := now.Unix() // 获取当前时间的Unix时间戳
-fmt.Println("当前Unix时间戳:", timestamp)
+	//addAnouncement  添加公告
+	now := time.Now()
+	timestamp := now.Unix() // 获取当前时间的Unix时间戳
+	fmt.Println("当前Unix时间戳:", timestamp)
 
 	signtime := new(big.Int)
 	signtime.SetInt64(timestamp)
@@ -570,47 +655,57 @@ fmt.Println("当前Unix时间戳:", timestamp)
 	fmt.Println("addAnouncementReturn=>", addAnouncementReturn)
 
 }
+```
+
 下图中的"contract2"可以替换为Test_Announcement
 
-image20241116150320944
+![image-20241116150320944](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150320944.png)
+
+
 
 执行结果：
 
-image20241116150640196
+![image-20241116150640196](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150640196.png)
 
 announcements功能测试：
 
 （1）创建接受数据的结构体:
 
+```go
 package contract
 
 import "math/big"
 
 type Output struct {
-Id         *big.Int
-UserID     string
-UserPK     string
-Nounce     string
-Message    string
-Cipher     string
-Attachment string
-Signtime   *big.Int
+	Id         *big.Int
+	UserID     string
+	UserPK     string
+	Nounce     string
+	Message    string
+	Cipher     string
+	Attachment string
+	Signtime   *big.Int
 }
-image20241114143222885
+```
+
+![image-20241114143222885](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114143222885.png)
+
+
 
 (2)运行的代码
 
+```go
 func TestAnnouncement() {
-//addAnouncement  添加公告
-//now := time.Now()
-//timestamp := now.Unix() // 获取当前时间的Unix时间戳
-//fmt.Println("当前Unix时间戳:", timestamp)
-//
-//signtime := new(big.Int)
-//signtime.SetInt64(timestamp)
-//
-//addAnouncementReturn := utils.SendTransaction(Test_Announcement, "addAnouncement", "10006", "userPK6", "nounce6", "message6", "cipher6", "attachment6", signtime)
-//fmt.Println("addAnouncementReturn=>", addAnouncementReturn)
+	//addAnouncement  添加公告
+	//now := time.Now()
+	//timestamp := now.Unix() // 获取当前时间的Unix时间戳
+	//fmt.Println("当前Unix时间戳:", timestamp)
+	//
+	//signtime := new(big.Int)
+	//signtime.SetInt64(timestamp)
+	//
+	//addAnouncementReturn := utils.SendTransaction(Test_Announcement, "addAnouncement", "10006", "userPK6", "nounce6", "message6", "cipher6", "attachment6", signtime)
+	//fmt.Println("addAnouncementReturn=>", addAnouncementReturn)
 
 	//announcements 查看公告
 	index := new(big.Int)
@@ -621,25 +716,32 @@ func TestAnnouncement() {
 	utils.SendCall(Test_Announcement, "announcements", out, index)
 	fmt.Println("public method announcementsReturn =>", *out)
 }
-image20241116153056085
+```
 
-image20241116151238464
+
+
+![image-20241116153056085](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116153056085.png)
+
+![image-20241116151238464](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116151238464.png)
+
+
 
 listAnouncement功能测试（在进行测试时，测试人员使用addAnouncement函数，上传了多个公告）：
 
-​ （1）不用查询条件进行查询（返回所有数据）：
+​	（1）不用查询条件进行查询（返回所有数据）：
 
+```go
 func TestAnnouncement() {
-//addAnouncement  添加公告
-//now := time.Now()
-//timestamp := now.Unix() // 获取当前时间的Unix时间戳
-//fmt.Println("当前Unix时间戳:", timestamp)
-//
-//signtime := new(big.Int)
-//signtime.SetInt64(timestamp)
-//
-//addAnouncementReturn := utils.SendTransaction(Test_Announcement, "addAnouncement", "10006", "userPK6", "nounce6", "message6", "cipher6", "attachment6", signtime)
-//fmt.Println("addAnouncementReturn=>", addAnouncementReturn)
+	//addAnouncement  添加公告
+	//now := time.Now()
+	//timestamp := now.Unix() // 获取当前时间的Unix时间戳
+	//fmt.Println("当前Unix时间戳:", timestamp)
+	//
+	//signtime := new(big.Int)
+	//signtime.SetInt64(timestamp)
+	//
+	//addAnouncementReturn := utils.SendTransaction(Test_Announcement, "addAnouncement", "10006", "userPK6", "nounce6", "message6", "cipher6", "attachment6", signtime)
+	//fmt.Println("addAnouncementReturn=>", addAnouncementReturn)
 
 	//announcements 查看公告
 	//index := new(big.Int)
@@ -674,67 +776,77 @@ func TestAnnouncement() {
 	fmt.Println("listAnouncementReturn Length =>", len(*ans))
 	fmt.Println("listAnouncementReturn =>", *ans)
 }
-image20241116154046671
+```
+
+
+
+![image-20241116154046671](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154046671.png)
 
 执行结果：
 
-image20241116154244229
+![image-20241116154244229](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154244229.png)
 
-​ （2）使用UserID进行查询：
+​	（2）使用UserID进行查询：
 
-注意事项：将byUserID的值赋值为true
+**注意事项**：**将byUserID的值赋值为true**
 
-image20241116154359736
+![image-20241116154359736](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154359736.png)
 
 ​
 
-​ （3）使用startTime,endTime进行查询：
+​	（3）使用startTime,endTime进行查询：
 
-注意事项：
+**注意事项**：
 
-（1）将byTimeRange的值赋值为true，将byUserID的值赋值为false
+**（1）将byTimeRange的值赋值为true，将byUserID的值赋值为false**
 
-（2）endTime（终止时间）的设置要注意
+**（2）endTime（终止时间）的设置要注意**
 
-image20241116154548801
+![image-20241116154548801](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154548801.png)
 
 （4）使用UserID和startTime,endTime进行查询：
 
-注意事项：
+**注意事项**：
 
-（1）将byTimeRange和byUserID的值赋值为true
+**（1）将byTimeRange和byUserID的值赋值为true**
 
-（2）会根据UserID和startTime,endTime进行查询，把所有符合条件的值返回
+**（2）会根据UserID和startTime,endTime进行查询，把所有符合条件的值返回**
 
-image20241116154630150
+![image-20241116154630150](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154630150.png)
 
-三，使用私钥发送交易
-1.更改配置文件config.toml
-image20241116133305258
 
-2.增加私钥生成方法及计算公钥，计算地址方法
-​ (1)生成文件路径：fisco-go-sdk-demo/fiscobcos/utils/secret.go
 
+## 三，使用私钥发送交易
+
+### 1.更改配置文件config.toml
+
+![image-20241116133305258](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116133305258.png)
+
+### 2.增加私钥生成方法及计算公钥，计算地址方法
+
+​	(1)生成文件路径：fisco-go-sdk-demo/fiscobcos/utils/secret.go
+
+```go
 package utils
 
 import (
-"crypto/ecdsa"
-"fmt"
-"github.com/ethereum/go-ethereum/common/hexutil"
-"github.com/ethereum/go-ethereum/crypto"
-"log"
+	"crypto/ecdsa"
+	"fmt"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto"
+	"log"
 )
 
 // GeneratePriKey  生成私钥
 func GeneratePriKey() (*ecdsa.PrivateKey, error) {
-//SDK发送交易需要一个外部账户，导入go-sdk的`crypto`包，该包提供用于生成随机私钥的`GenerateKey`方法：
-privateKey, err := crypto.GenerateKey()
-if err != nil {
-log.Fatal(err)
-return nil, err
-}
-//然后我们可以通过导入golang`crypto/ecdsa`包并使用`FromECDSA`方法将其转换为字节：
-privateKeyBytes := crypto.FromECDSA(privateKey)
+	//SDK发送交易需要一个外部账户，导入go-sdk的`crypto`包，该包提供用于生成随机私钥的`GenerateKey`方法：
+	privateKey, err := crypto.GenerateKey()
+	if err != nil {
+		log.Fatal(err)
+		return nil, err
+	}
+	//然后我们可以通过导入golang`crypto/ecdsa`包并使用`FromECDSA`方法将其转换为字节：
+	privateKeyBytes := crypto.FromECDSA(privateKey)
 
 	//我们现在可以使用go-sdk的`common/hexutil`包将它转换为十六进制字符串，该包提供了一个带有字节切片的`Encode`方法。 然后我们在十六进制编码之后删除“0x”。
 	fmt.Println("Figure PrivateKey: ", hexutil.Encode(privateKeyBytes)[2:]) // privateKey in hex without "0x"
@@ -744,8 +856,8 @@ privateKeyBytes := crypto.FromECDSA(privateKey)
 
 // FigurePublicKey 根据私钥计算公钥
 func FigurePublicKey(privateKey *ecdsa.PrivateKey) (*ecdsa.PublicKey, bool) {
-//由于公钥是从私钥派生的，加密私钥具有一个返回公钥的`Public`方法：
-publicKey := privateKey.Public()
+	//由于公钥是从私钥派生的，加密私钥具有一个返回公钥的`Public`方法：
+	publicKey := privateKey.Public()
 
 	//将其转换为十六进制的过程与我们使用转化私钥的过程类似。 我们剥离了`0x`和前2个字符`04`，它始终是EC前缀，不是必需的。
 	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
@@ -760,36 +872,40 @@ publicKey := privateKey.Public()
 
 // FiguredAddress 根据公钥计算地址
 func FiguredAddress(publicKeyECDSA *ecdsa.PublicKey) string {
-//现在我们拥有公钥，就可以轻松生成你经常看到的公共地址。 加密包里有一个`PubkeyToAddress`方法，它接受一个ECDSA公钥，并返回公共地址。
-address := crypto.PubkeyToAddress(*publicKeyECDSA).Hex()
-//fmt.Println("address: ", strings.ToLower(address)) // account address
-return address
+	//现在我们拥有公钥，就可以轻松生成你经常看到的公共地址。 加密包里有一个`PubkeyToAddress`方法，它接受一个ECDSA公钥，并返回公共地址。
+	address := crypto.PubkeyToAddress(*publicKeyECDSA).Hex()
+	//fmt.Println("address: ", strings.ToLower(address)) // account address
+	return address
 }
-image20241116161746729
+```
 
-3.新增通过私钥发送交易的函数
-​ （1）路径：fisco-go-sdk-demo/fiscobcos/utils/fisco.go
+![image-20241116161746729](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116161746729.png)
 
+### 3.新增通过私钥发送交易的函数
+
+​	（1）路径：fisco-go-sdk-demo/fiscobcos/utils/fisco.go
+
+```go
 package utils
 
 import (
-goecdsa "crypto/ecdsa"
-"errors"
-"fisco-go-sdk-demo/global"
-"fmt"
-"github.com/FISCO-BCOS/go-sdk/abi"
-"github.com/FISCO-BCOS/go-sdk/abi/bind"
-"github.com/FISCO-BCOS/go-sdk/core/types"
-"github.com/ethereum/go-ethereum/common"
-"github.com/ethereum/go-ethereum/crypto"
-"strings"
+	goecdsa "crypto/ecdsa"
+	"errors"
+	"fisco-go-sdk-demo/global"
+	"fmt"
+	"github.com/FISCO-BCOS/go-sdk/abi"
+	"github.com/FISCO-BCOS/go-sdk/abi/bind"
+	"github.com/FISCO-BCOS/go-sdk/core/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	"strings"
 )
 
 /*
 公用发送交易组装器
 */
 func SendTransaction(name, method string, params ...interface{}) any {
-_, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTransactOpts(), method, params...)
+	_, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTransactOpts(), method, params...)
 
 	if ok != nil {
 		fmt.Println("txError=>", ok)
@@ -813,34 +929,34 @@ _, receipt, ok := global.GoSdk.Contract[name].Transact(global.GoSdk.Client.GetTr
 
 // SendCall 获取链上信息
 func SendCall(name, method string, out interface{}, params ...interface{}) any {
-err := global.GoSdk.Contract[name].Call(global.GoSdk.Client.GetCallOpts(), out, method, params...)
-if err != nil {
-fmt.Println("SendCall err==>", err)
-}
-return out
+	err := global.GoSdk.Contract[name].Call(global.GoSdk.Client.GetCallOpts(), out, method, params...)
+	if err != nil {
+		fmt.Println("SendCall err==>", err)
+	}
+	return out
 }
 
 func NewKeyedTransactor(key *goecdsa.PrivateKey) *bind.TransactOpts {
-//key, _ := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
-keyAddr := crypto.PubkeyToAddress(key.PublicKey)
-return &bind.TransactOpts{
-From: keyAddr,
-Signer: func(signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
-if address != keyAddr {
-return nil, errors.New("not authorized to sign this account")
-}
-signature, err := crypto.Sign(signer.Hash(tx).Bytes(), key)
-if err != nil {
-return nil, err
-}
-return tx.WithSignature(signer, signature)
-},
-}
+	//key, _ := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
+	keyAddr := crypto.PubkeyToAddress(key.PublicKey)
+	return &bind.TransactOpts{
+		From: keyAddr,
+		Signer: func(signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
+			if address != keyAddr {
+				return nil, errors.New("not authorized to sign this account")
+			}
+			signature, err := crypto.Sign(signer.Hash(tx).Bytes(), key)
+			if err != nil {
+				return nil, err
+			}
+			return tx.WithSignature(signer, signature)
+		},
+	}
 }
 
 // SendTransactionByKey 使用私钥发送交易
 func SendTransactionByKey(name, method string, privateKey *goecdsa.PrivateKey, params ...interface{}) any {
-_, receipt, ok := global.GoSdk.Contract[name].Transact(NewKeyedTransactor(privateKey), method, params...)
+	_, receipt, ok := global.GoSdk.Contract[name].Transact(NewKeyedTransactor(privateKey), method, params...)
 
 	if ok != nil {
 		fmt.Println("txError=>", ok)
@@ -864,37 +980,41 @@ _, receipt, ok := global.GoSdk.Contract[name].Transact(NewKeyedTransactor(privat
 
 // SendCallByKey SendCall 获取链上信息
 func SendCallByKey(name, method string, privateKey *goecdsa.PrivateKey, out interface{}, params ...interface{}) any {
-clientCallOpts := &bind.CallOpts{From: NewKeyedTransactor(privateKey).From}
-err := global.GoSdk.Contract[name].Call(clientCallOpts, out, method, params...)
-if err != nil {
-fmt.Println("SendCall err==>", err)
+	clientCallOpts := &bind.CallOpts{From: NewKeyedTransactor(privateKey).From}
+	err := global.GoSdk.Contract[name].Call(clientCallOpts, out, method, params...)
+	if err != nil {
+		fmt.Println("SendCall err==>", err)
+	}
+	return out
 }
-return out
-}
-4.使用新增的函数生成私钥发送交易
-注意事项：（这里只做HelloWorld合约调用，其他合约的调用方式都差不多）
+```
 
+### 4.使用新增的函数生成私钥发送交易
+
+**注意事项：（这里只做HelloWorld合约调用，其他合约的调用方式都差不多）**
+
+```go
 package main
 
 import (
-"crypto/ecdsa"
-"fisco-go-sdk-demo/core"
-"fisco-go-sdk-demo/fiscobcos/utils"
-contract "fisco-go-sdk-demo/models/contracts"
-"fmt"
-"math/big"
-"time"
+	"crypto/ecdsa"
+	"fisco-go-sdk-demo/core"
+	"fisco-go-sdk-demo/fiscobcos/utils"
+	contract "fisco-go-sdk-demo/models/contracts"
+	"fmt"
+	"math/big"
+	"time"
 )
 
 const (
-Test_HelloWorld   = "contract1"
-Test_Announcement = "contract2"
+	Test_HelloWorld   = "contract1"
+	Test_Announcement = "contract2"
 )
 
 func TestHelloWorld(key *ecdsa.PrivateKey) {
-//获取string类型
-s1 := new(string)
-utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
+	//获取string类型
+	s1 := new(string)
+	utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
 
 	//更改string类型
 	transaction := utils.SendTransactionByKey(Test_HelloWorld, "set", key, "Hello,FISCO-BCOS")
@@ -908,71 +1028,75 @@ utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
 	fmt.Println("SendCall12==>", *s2)
 }
 func main() {
-core.InitConf()
-core.InitClient()
-core.InitSession(Test_HelloWorld)
-//创建私钥
-ecdsaKey, err := utils.GeneratePriKey()
-if err != nil {
-fmt.Println("GeneratePriKey Failed==>", err)
+	core.InitConf()
+	core.InitClient()
+	core.InitSession(Test_HelloWorld)
+	//创建私钥
+	ecdsaKey, err := utils.GeneratePriKey()
+	if err != nil {
+		fmt.Println("GeneratePriKey Failed==>", err)
+	}
+	TestHelloWorld(ecdsaKey)
 }
-TestHelloWorld(ecdsaKey)
-}
-image20241116155837624
+```
 
-image20241116155555390
+![image-20241116155837624](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116155837624.png)
 
-5.通过WeBASE导出的私钥发送交易
-注意事项：
+![image-20241116155555390](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116155555390.png)
 
-​ 代码中不展示具体的调用函数过程，但会通过私钥计算出公钥和地址，与webase上导出的文件作对比
+### 5.通过WeBASE导出的私钥发送交易
 
-​ 具体函数调用过程，只需要通过将各类型的私钥，转换成*ecdsa.PrivateKey类型的私钥，就可以调用SendCallByKey(将私钥作为参数传入就行)。
+**注意事项：**
+
+​	**代码中不展示具体的调用函数过程，但会通过私钥计算出公钥和地址，与webase上导出的文件作对比**
+
+​	**具体函数调用过程，只需要通过将各类型的私钥，转换成*ecdsa.PrivateKey类型的私钥，就可以调用SendCallByKey(将私钥作为参数传入就行)。**
 
 写入新的工具包
 
 路径：fisco-go-sdk-demo/fiscobcos/utils/trans_ecdsa_key.go
 
+```go
 package utils
 
 import (
-"crypto/ecdsa"
-"encoding/asn1"
-"encoding/hex"
-"encoding/pem"
-"errors"
-"fmt"
-"github.com/ethereum/go-ethereum/crypto"
-"github.com/sirupsen/logrus"
-"math/big"
+	"crypto/ecdsa"
+	"encoding/asn1"
+	"encoding/hex"
+	"encoding/pem"
+	"errors"
+	"fmt"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/sirupsen/logrus"
+	"math/big"
 )
 
 // 将十六进制私钥转换成ecdsa私钥
 func HexConvertEcdsa(key string) *ecdsa.PrivateKey {
-// 将十六进制私钥字符串解码为字节切片
-byteArray, err := hex.DecodeString(key)
-if err != nil {
-fmt.Printf("Error decoding hex string: %v\n", err)
-return nil
-}
-privateKey, ok := crypto.ToECDSA(byteArray)
-if ok != nil {
-fmt.Println("covert invoke crypto.ToECDSA Failed", ok)
-}
-return privateKey
+	// 将十六进制私钥字符串解码为字节切片
+	byteArray, err := hex.DecodeString(key)
+	if err != nil {
+		fmt.Printf("Error decoding hex string: %v\n", err)
+		return nil
+	}
+	privateKey, ok := crypto.ToECDSA(byteArray)
+	if ok != nil {
+		fmt.Println("covert invoke crypto.ToECDSA Failed", ok)
+	}
+	return privateKey
 }
 
 // 将十进制私钥转换成ecdsa私钥
 func DeConvertEcdsa(key string) *ecdsa.PrivateKey {
-// 将十进制私钥字符串解码为字节切片
-// 使用 math/big 的 NewInt 方法将十进制字符串转换为大整数
-privateKeyInt := new(big.Int)
-var success bool
-privateKeyInt, success = privateKeyInt.SetString(key, 10) // 10表示十进制
-if !success {
-fmt.Println("Error parsing private key")
-return nil
-}
+	// 将十进制私钥字符串解码为字节切片
+	// 使用 math/big 的 NewInt 方法将十进制字符串转换为大整数
+	privateKeyInt := new(big.Int)
+	var success bool
+	privateKeyInt, success = privateKeyInt.SetString(key, 10) // 10表示十进制
+	if !success {
+		fmt.Println("Error parsing private key")
+		return nil
+	}
 
 	// 将大整数转换为字节数组
 	privateKeyBytes := privateKeyInt.Bytes()
@@ -986,28 +1110,28 @@ return nil
 // 将pem私钥转换成ecdsa私钥
 
 func PemConvertEcdsa(key string) *ecdsa.PrivateKey {
-IsSMCrypto := false //非国密设置
-keyBytes, curve, err := LoadECPrivateKeyFromPEM(key)
-if err != nil {
-fmt.Errorf("parse private key failed, err: %v", err)
-}
-if IsSMCrypto && curve != "sm2p256v1" {
-fmt.Errorf("smcrypto must use sm2p256v1 private key, but found %s", curve)
-}
-if !IsSMCrypto && curve != "secp256k1" {
-fmt.Errorf("must use secp256k1 private key, but found %s", curve)
-}
-privateKey, err := crypto.ToECDSA(keyBytes)
-if err != nil {
-logrus.Fatal(err)
-}
-return privateKey
+	IsSMCrypto := false //非国密设置
+	keyBytes, curve, err := LoadECPrivateKeyFromPEM(key)
+	if err != nil {
+		fmt.Errorf("parse private key failed, err: %v", err)
+	}
+	if IsSMCrypto && curve != "sm2p256v1" {
+		fmt.Errorf("smcrypto must use sm2p256v1 private key, but found %s", curve)
+	}
+	if !IsSMCrypto && curve != "secp256k1" {
+		fmt.Errorf("must use secp256k1 private key, but found %s", curve)
+	}
+	privateKey, err := crypto.ToECDSA(keyBytes)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+	return privateKey
 }
 
 // LoadECPrivateKeyFromPEM reads file, divides into key and certificates
 func LoadECPrivateKeyFromPEM(key string) ([]byte, string, error) {
-// 移除PEM头尾，只保留Base64编码的部分
-block, _ := pem.Decode([]byte(key))
+	// 移除PEM头尾，只保留Base64编码的部分
+	block, _ := pem.Decode([]byte(key))
 
 	if block == nil {
 		return nil, "", fmt.Errorf("Failure reading pem from %s", key)
@@ -1024,8 +1148,8 @@ block, _ := pem.Decode([]byte(key))
 
 // parseECPrivateKey is a copy of x509.ParseECPrivateKey, supported secp256k1 and sm2p256v1
 func parsePKCS8ECPrivateKey(der []byte) (keyHex []byte, curveName string, err error) {
-oidNamedCurveSm2p256v1 := asn1.ObjectIdentifier{1, 2, 156, 10197, 1, 301}
-oidNamedCurveSecp256k1 := asn1.ObjectIdentifier{1, 3, 132, 0, 10}
+	oidNamedCurveSm2p256v1 := asn1.ObjectIdentifier{1, 2, 156, 10197, 1, 301}
+	oidNamedCurveSecp256k1 := asn1.ObjectIdentifier{1, 3, 132, 0, 10}
 
 	oidPublicKeyECDSA := asn1.ObjectIdentifier{1, 2, 840, 10045, 2, 1}
 	// AlgorithmIdentifier represents the ASN.1 structure of the same name. See RFC
@@ -1081,51 +1205,56 @@ oidNamedCurveSecp256k1 := asn1.ObjectIdentifier{1, 3, 132, 0, 10}
 	return privKey.PrivateKey, curveName, nil
 }
 
-image20241116162003950
+```
+
+![image-20241116162003950](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116162003950.png)
 
 （1）十六进制私钥的使用
 
 新增用户：
 
-image20241116160740684
+![image-20241116160740684](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160740684.png)
 
-image20241116160851606
+![image-20241116160851606](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160851606.png)
 
 导出私钥
 
-image20241116160943253
+![image-20241116160943253](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160943253.png)
 
 打开这个文件：
 
-（它是一个键值的形式，找到privateKey这个键，后面的值，复制出来）
+**（它是一个键值的形式，找到privateKey这个键，后面的值，复制出来）**
+
+
 
 编写代码：
 
-注意事项：
+**注意事项：**
 
-自己操作时，请操作自己导出的私钥
+**自己操作时，请操作自己导出的私钥**
 
+```
 package main
 
 import (
-"crypto/ecdsa"
-"fisco-go-sdk-demo/core"
-"fisco-go-sdk-demo/fiscobcos/utils"
-contract "fisco-go-sdk-demo/models/contracts"
-"fmt"
-"math/big"
-"time"
+	"crypto/ecdsa"
+	"fisco-go-sdk-demo/core"
+	"fisco-go-sdk-demo/fiscobcos/utils"
+	contract "fisco-go-sdk-demo/models/contracts"
+	"fmt"
+	"math/big"
+	"time"
 )
 
 const (
-Test_HelloWorld   = "contract1"
-Test_Announcement = "contract2"
+	Test_HelloWorld   = "contract1"
+	Test_Announcement = "contract2"
 )
 
 func TestHelloWorld(key *ecdsa.PrivateKey) {
-//获取string类型
-s1 := new(string)
-utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
+	//获取string类型
+	s1 := new(string)
+	utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
 
 	//更改string类型
 	transaction := utils.SendTransactionByKey(Test_HelloWorld, "set", key, "Hello,FISCO-BCOS")
@@ -1139,9 +1268,9 @@ utils.SendCallByKey(Test_HelloWorld, "get", key, s1)
 	fmt.Println("SendCall12==>", *s2)
 }
 func main() {
-core.InitConf()
-core.InitClient()
-core.InitSession(Test_HelloWorld)
+	core.InitConf()
+	core.InitClient()
+	core.InitSession(Test_HelloWorld)
 
 	//将复制的私钥放到这
 	privateKey := "9aa6caadc26030aebf7d5a00ba18156d1b20e490a84bee070f87858f8aa7e5fe"
@@ -1154,9 +1283,11 @@ core.InitSession(Test_HelloWorld)
 	fmt.Println("FiguredAddress==>", address)
 	TestHelloWorld(ecdsaKey)
 }
-image20241116163916089
+```
 
-image20241116164821097
+![image-20241116163916089](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116163916089.png)
+
+![image-20241116164821097](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116164821097.png)
 
 （2）十进制私钥的使用
 
@@ -1164,14 +1295,15 @@ image20241116164821097
 
 更改主函数：
 
-注意事项：
+**注意事项：**
 
-自己操作时，请操作自己导出的私钥
+**自己操作时，请操作自己导出的私钥**
 
+```go
 func main() {
-core.InitConf()
-core.InitClient()
-core.InitSession(Test_HelloWorld)
+	core.InitConf()
+	core.InitClient()
+	core.InitSession(Test_HelloWorld)
 
 	//将复制的私钥放到这
 	privateKey := "69950874131879215642161436574072734187363931343533962012415567965774976378366"
@@ -1184,15 +1316,17 @@ core.InitSession(Test_HelloWorld)
 	fmt.Println("FiguredAddress==>", address)
 	TestHelloWorld(ecdsaKey)
 }
-image20241116165618891
+```
+
+![image-20241116165618891](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116165618891.png)
 
 执行成功：
 
-注意事项：
+**注意事项：**
 
-由于导出十进制私钥没有附带address,publicKey。所以用导出的txt形式做对比
+**由于导出十进制私钥没有附带address,publicKey。所以用导出的txt形式做对比**
 
-image20241116165812489
+![image-20241116165812489](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116165812489.png)
 
 （3）pem格式私钥的使用
 
@@ -1200,14 +1334,15 @@ image20241116165812489
 
 更改主函数:
 
-注意事项：
+**注意事项：**
 
-自己操作时，请操作自己导出的私钥
+**自己操作时，请操作自己导出的私钥**
 
+```go
 func main() {
-core.InitConf()
-core.InitClient()
-core.InitSession(Test_HelloWorld)
+	core.InitConf()
+	core.InitClient()
+	core.InitSession(Test_HelloWorld)
 
 	//将复制的私钥放到这
 	privateKey := "-----BEGIN PRIVATE KEY-----\nMIGNAgEAMBAGByqGSM49AgEGBSuBBAAKBHYwdAIBAQQgmqbKrcJgMK6/fVoAuhgV\nbRsg5JCoS+4HD4eFj4qn5f6gBwYFK4EEAAqhRANCAATan9lZU4g6+DXBScOZ0X5U\npkuMg+CAPi85MijzzFof7cY8NvrZX+fy5hrOw5SRnKHnyw4VQYbFzpaqU7L84Pa3\n-----END PRIVATE KEY-----"
@@ -1220,42 +1355,57 @@ core.InitSession(Test_HelloWorld)
 	fmt.Println("FiguredAddress==>", address)
 	TestHelloWorld(ecdsaKey)
 }
-image20241116170242065
+```
+
+![image-20241116170242065](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116170242065.png)
 
 执行成功：
 
-注意事项：
+**注意事项：**
 
-由于导出pem格式私钥没有附带address,publicKey。所以用导出的txt形式做对比
+**由于导出pem格式私钥没有附带address,publicKey。所以用导出的txt形式做对比**
 
-image20241116170650246
+![image-20241116170650246](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116170650246.png)
 
-四，小结：
-1.发送交易的函数
-​ （1）在不使用动态私钥的情况：
+## 四，小结：
 
+### 1.发送交易的函数
+
+​	（1）在不使用动态私钥的情况：
+
+```
 SendTransaction  (作用：往链上存储信息，注意：合约函数的返回值最好设定为bool值。)
 SendCall   (作用：获取链上信息,注意：合约函数的传入参数和返回值需要定义模型 )
-​ （2）在使用动态私钥的情况：
+```
 
+​	（2）在使用动态私钥的情况：
+
+```
 SendTransaction (需要传入私钥) (作用：往链上存储信息，注意：被调用合约函数的返回值最好设定为bool值。)
 SendCall  (需要传入私钥) (作用：获取链上信息,注意：合约函数的传入参数和返回值需要定义模型。 )
-2.合约类型和go语言中的类型对应
-合约中传入和返回参数	Go语言中使用对应类型
-string	string或者*string
-uint / uint256	*big.Int
-uint8	*uint8
-address	*common.address(用这个包：github.com/ethereum/go-ethereum/common)
-bool	bool或者*bool
-uint[] / uint256[]	*[]big.Int
-string[]	*[]string
-结构体（例如：User）	*User
-结构体数组（例如：User[]）	*[]User
-注意事项：
+```
 
-go语言中声明传入、传出的参数的模型时，可以直接：new一个类型 赋值给 变量
 
-例如：num:= new(big.Int)
+
+### 2.合约类型和go语言中的类型对应
+
+| 合约中传入和返回参数       | Go语言中使用对应类型                                         |
+| -------------------------- | ------------------------------------------------------------ |
+| string                     | string或者*string                                            |
+| uint / uint256             | *big.Int                                                     |
+| uint8                      | *uint8                                                       |
+| address                    | *common.address(用这个包：github.com/ethereum/go-ethereum/common) |
+| bool                       | bool或者*bool                                                |
+| uint[] / uint256[]         | *[]big.Int                                                   |
+| string[]                   | *[]string                                                    |
+| 结构体（例如：User）       | *User                                                        |
+| 结构体数组（例如：User[]） | *[]User                                                      |
+
+**注意事项：**
+
+**go语言中声明传入、传出的参数的模型时，可以直接：new一个类型 赋值给 变量**
+
+**例如：num:= new(big.Int)**
 
 #### 参与贡献
 
