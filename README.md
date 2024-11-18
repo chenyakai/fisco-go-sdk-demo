@@ -53,7 +53,7 @@ contracts:
   address:
   abi:
   bin:
- contract2:(这里的设计只是一个键对应一个结构体数据)
+ contract2: (这里的设计只是一个键对应一个结构体数据)
   name:
   address:
   abi:
