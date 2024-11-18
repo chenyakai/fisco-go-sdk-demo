@@ -1390,15 +1390,15 @@ SendCall  (需要传入私钥) (作用：获取链上信息,注意：合约函�
 ### 2.合约类型和go语言中的类型对应
 
 | 合约中传入和返回参数       | Go语言中使用对应类型                                         |
-| -------------------------- | ------------------------------------------------------------ |
-| string                     | string或者*string                                            |
-| uint / uint256             | *big.Int                                                     |
-| uint8                      | *uint8                                                       |
-| address                    | *common.address(用这个包：github.com/ethereum/go-ethereum/common) |
-| bool                       | bool或者*bool                                                |
-| uint[] / uint256[]         | *[]big.Int                                                   |
-| string[]                   | *[]string                                                    |
-| 结构体（例如：User）       | *User                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| string             | string或者*string                                            |
+| uint256            | *big.Int                                                     |
+| uint8              | *uint8                                                       |
+| address            | *common.address(用这个包：github.com/ethereum/go-ethereum/common) |
+| bool               | bool或者*bool                                                |
+| uint256[]         | *[]big.Int                                                   |
+| string[]           | *[]string                                                    |
+| 结构体（例如：User）      | *User                                                        |
 | 结构体数组（例如：User[]） | *[]User                                                      |
 
 **注意事项：**
