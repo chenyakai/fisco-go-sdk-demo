@@ -220,7 +220,7 @@ contract Anonoucement {
 
 （1）这里的abi要将其中的 " 替换成  \",可以打开一个记事本,放入abi,使用快捷键ctrl+f, 全部替换。
 
-![image-20241111232005034](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111232005034.png)
+![image-20241111232005034](https://img-blog.csdnimg.cn/img_convert/0f506d652e49faa5c8a5569bb6c2d2a3.png)
 
 ​		（2）也可以不用替换，直接将abi赋值给global.Config.Contract["contract1"].Abi。
 (这里的"contract1"是一个map的键与settings配置文件中的保持一致) 换作其他的合约换成其他对应的 键 就好。
