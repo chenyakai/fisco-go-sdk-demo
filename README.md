@@ -1409,7 +1409,7 @@ SendCall  (需要传入私钥) (作用：获取链上信息,注意：合约函�
 
 #### 参与贡献
 
-凌零岭在哪,Flatsail,Bugdog
+凌零岭在哪,Flatsail,BugDog
 
 
 #### 特技
