@@ -219,8 +219,8 @@ contract Anonoucement {
 
 ![image-20241111232005034](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111232005034.png)
 
-​		（2）也可以不用替换，直接将abi赋值给global.Config.Fisco.Abi。
-
+​		（2）也可以不用替换，直接将abi赋值给global.Config.Contract["contract1"].Abi。
+(这里的"contract1"是一个map的键与settings配置文件中的保持一致) 换作其他的合约换成其他对应的 键 就好。
 
 
 创建结构体：
