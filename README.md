@@ -1407,9 +1407,9 @@ SendCall  (需要传入私钥) (作用：获取链上信息,注意：合约函�
 
 **例如：num:= new(big.Int)**
 
-#### 参与贡献
+## 四.参与贡献
 
-凌零岭在哪,Flatsail,BugDog
+凌零岭在哪,Flatsail,Bugdog
 
 
 #### 特技
