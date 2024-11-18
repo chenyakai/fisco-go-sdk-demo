@@ -12,9 +12,9 @@
 | 文档更新 | 凌零岭在哪，Flatsail，BugDog | 2024-11-13 | 2.0    | email:2040575063@qq.com |
 | 文档更新 | 凌零岭在哪，Flatsail，BugDog | 2024-11-16 | 3.0    | email:2040575063@qq.com |
 
-背景：基于FISCOBCOS提供的GoSDK，再次封装使用，简化官方文档中的操作。
+背景：基于FISCOBCOS(v2.9.1)提供的GoSDK，再次封装使用，简化官方文档中的操作。
 参考文档：https://fisco-bcos-documentation.readthedocs.io/zh-cn/latest/docs/sdk/go_sdk/index.html
-
+参考工具库： https://github.com/FISCO-BCOS/go-sdk/tree/master-FISCO-BCOS-v2
 ## 一，GoWEB项目创建：
 
 1.新建项目：
