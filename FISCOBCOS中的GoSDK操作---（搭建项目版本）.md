@@ -16,19 +16,19 @@
 
 1.新建项目：
 
-![image-20241111211334011](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111211334011.png)
+![image-20241111211334011](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111211334011.png)
 
 
 
 2.项目路径（随自己心意）：
 
-![image-20241113215548137](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113215548137.png)
+![image-20241113215548137](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113215548137.png)
 
 
 
 3.生成成功：
 
-![image-20241113215722560](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113215722560.png)
+![image-20241113215722560](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113215722560.png)
 
 
 
@@ -36,7 +36,7 @@
 
 ### 1.创建目录
 
-![image-20241113220903432](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113220903432.png)
+![image-20241113220903432](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113220903432.png)
 
 
 
@@ -58,7 +58,7 @@ contracts:
   bin:
 ```
 
-![image-20241113221418154](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113221418154.png)
+![image-20241113221418154](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113221418154.png)
 
 ​	
 
@@ -89,7 +89,7 @@ contract HelloWorld {
 }
 ```
 
-![image-20241111233515558](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111233515558.png)
+![image-20241111233515558](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111233515558.png)
 
 
 
@@ -209,7 +209,7 @@ contract Anonoucement {
 }
 ```
 
-![image-20241113221832674](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113221832674.png)	
+![image-20241113221832674](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113221832674.png)	
 
 ​	
 
@@ -234,7 +234,7 @@ type Contract struct {
 }
 ```
 
-![image-20241113222325831](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113222325831.png)
+![image-20241113222325831](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222325831.png)
 
 
 
@@ -246,7 +246,7 @@ type Config struct {
 }
 ```
 
-![image-20241116141328182](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116141328182.png)
+![image-20241116141328182](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116141328182.png)
 
 
 
@@ -262,13 +262,13 @@ var (
 )
 ```
 
-![image-20241113222811906](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113222811906.png)
+![image-20241113222811906](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222811906.png)
 
 
 
 拉取工具包：
 
-![image-20241113222920011](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113222920011.png)
+![image-20241113222920011](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113222920011.png)
 
 
 
@@ -303,7 +303,7 @@ func InitConf() {
 }
 ```
 
-![image-20241113223428460](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113223428460.png)
+![image-20241113223428460](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113223428460.png)
 
 
 
@@ -313,17 +313,17 @@ func InitConf() {
 
 ​	生成私钥：
 
-![image-20241111221322139](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111221322139.png)
+![image-20241111221322139](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221322139.png)
 
-![image-20241111221134898](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111221134898.png)
+![image-20241111221134898](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221134898.png)
 
 ​	**或者从WeBASE-Front上，拿取，下载到项目目录的（fisco-go-sdk-demo/fiscobcos/accounts）中：**
 
 ​    **下载完之后，记得将私钥文件改个名字（与config.toml中的配置项保持一致）。**
 
-​	![image-20241114202357687](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241114202357687.png)
+​	![image-20241114202357687](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114202357687.png)
 
-![image-20241114202442566](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241114202442566.png)
+![image-20241114202442566](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114202442566.png)
 
 **注意：**
 
@@ -335,9 +335,9 @@ func InitConf() {
 
 ​	拷贝节点证书文件：
 
-![image-20241113223623764](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113223623764.png)
+![image-20241113223623764](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113223623764.png)
 
-​	例如：![image-20241111221731453](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241111221731453.png)
+​	例如：![image-20241111221731453](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241111221731453.png)
 
 
 
@@ -377,13 +377,13 @@ SMCrypto=false # 非国密
 Path="./"
 ```
 
-![image-20241113224522760](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113224522760.png)
+![image-20241113224522760](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113224522760.png)
 
 
 
 拉取工具包：
 
-![image-20241113224815041](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241113224815041.png)
+![image-20241113224815041](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241113224815041.png)
 
 
 
@@ -404,7 +404,7 @@ type GoSdk struct {
 
 ```
 
-![image-20241115100003465](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241115100003465.png)
+![image-20241115100003465](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241115100003465.png)
 
 
 
@@ -421,7 +421,7 @@ var (
 )
 ```
 
-![image-20241115100112903](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241115100112903.png)
+![image-20241115100112903](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241115100112903.png)
 
 
 
@@ -490,7 +490,7 @@ func bindContract(ABI string, address common.Address, caller bind.ContractCaller
 
 ```
 
-![image-20241116142242111](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116142242111.png)
+![image-20241116142242111](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116142242111.png)
 
 
 
@@ -545,7 +545,7 @@ func SendCall(name, method string, out interface{}, params ...interface{}) any {
 }
 ```
 
-![image-20241116142547071](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116142547071.png)
+![image-20241116142547071](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116142547071.png)
 
 
 
@@ -595,7 +595,7 @@ func main() {
 }
 ```
 
-![image-20241116144852639](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116144852639.png)
+![image-20241116144852639](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116144852639.png)
 
 
 
@@ -607,7 +607,7 @@ func main() {
 
 ​	（2）如果还是报错，根据报错信息拉取对应的工具包。
 
-![image-20241116150924721](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116150924721.png)
+![image-20241116150924721](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150924721.png)
 
 
 
@@ -657,13 +657,13 @@ func TestAnnouncement() {
 
 下图中的"contract2"可以替换为Test_Announcement
 
-![image-20241116150320944](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116150320944.png)
+![image-20241116150320944](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150320944.png)
 
 
 
 执行结果：
 
-![image-20241116150640196](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116150640196.png)
+![image-20241116150640196](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116150640196.png)
 
 announcements功能测试：
 
@@ -686,7 +686,7 @@ type Output struct {
 }
 ```
 
-![image-20241114143222885](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241114143222885.png)
+![image-20241114143222885](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241114143222885.png)
 
 
 
@@ -718,9 +718,9 @@ func TestAnnouncement() {
 
 
 
-![image-20241116153056085](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116153056085.png)
+![image-20241116153056085](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116153056085.png)
 
-![image-20241116151238464](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116151238464.png)
+![image-20241116151238464](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116151238464.png)
 
 
 
@@ -778,17 +778,17 @@ func TestAnnouncement() {
 
 
 
-![image-20241116154046671](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116154046671.png)
+![image-20241116154046671](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154046671.png)
 
 执行结果：
 
-![image-20241116154244229](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116154244229.png)
+![image-20241116154244229](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154244229.png)
 
 ​	（2）使用UserID进行查询：
 
 **注意事项**：**将byUserID的值赋值为true**
 
-![image-20241116154359736](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116154359736.png)
+![image-20241116154359736](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154359736.png)
 
 ​	
 
@@ -800,7 +800,7 @@ func TestAnnouncement() {
 
 **（2）endTime（终止时间）的设置要注意**
 
-![image-20241116154548801](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116154548801.png)
+![image-20241116154548801](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154548801.png)
 
 （4）使用UserID和startTime,endTime进行查询：
 
@@ -810,7 +810,7 @@ func TestAnnouncement() {
 
 **（2）会根据UserID和startTime,endTime进行查询，把所有符合条件的值返回**
 
-![image-20241116154630150](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116154630150.png)
+![image-20241116154630150](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116154630150.png)
 
 
 
@@ -818,7 +818,7 @@ func TestAnnouncement() {
 
 ### 1.更改配置文件config.toml
 
-![image-20241116133305258](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116133305258.png)
+![image-20241116133305258](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116133305258.png)
 
 ### 2.增加私钥生成方法及计算公钥，计算地址方法
 
@@ -877,7 +877,7 @@ func FiguredAddress(publicKeyECDSA *ecdsa.PublicKey) string {
 }
 ```
 
-![image-20241116161746729](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116161746729.png)
+![image-20241116161746729](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116161746729.png)
 
 ### 3.新增通过私钥发送交易的函数
 
@@ -1038,9 +1038,9 @@ func main() {
 }
 ```
 
-![image-20241116155837624](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116155837624.png)
+![image-20241116155837624](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116155837624.png)
 
-![image-20241116155555390](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116155555390.png)
+![image-20241116155555390](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116155555390.png)
 
 ### 5.通过WeBASE导出的私钥发送交易
 
@@ -1205,19 +1205,19 @@ func parsePKCS8ECPrivateKey(der []byte) (keyHex []byte, curveName string, err er
 
 ```
 
-![image-20241116162003950](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116162003950.png)
+![image-20241116162003950](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116162003950.png)
 
 （1）十六进制私钥的使用
 
 新增用户：
 
-![image-20241116160740684](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116160740684.png)
+![image-20241116160740684](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160740684.png)
 
-![image-20241116160851606](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116160851606.png)
+![image-20241116160851606](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160851606.png)
 
 导出私钥
 
-![image-20241116160943253](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116160943253.png)
+![image-20241116160943253](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116160943253.png)
 
 打开这个文件：
 
@@ -1283,9 +1283,9 @@ func main() {
 }
 ```
 
-![image-20241116163916089](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116163916089.png)
+![image-20241116163916089](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116163916089.png)
 
-![image-20241116164821097](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116164821097.png)
+![image-20241116164821097](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116164821097.png)
 
 （2）十进制私钥的使用
 
@@ -1316,7 +1316,7 @@ func main() {
 }
 ```
 
-![image-20241116165618891](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116165618891.png)
+![image-20241116165618891](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116165618891.png)
 
 执行成功：
 
@@ -1324,7 +1324,7 @@ func main() {
 
 **由于导出十进制私钥没有附带address,publicKey。所以用导出的txt形式做对比**
 
-![image-20241116165812489](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116165812489.png)
+![image-20241116165812489](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116165812489.png)
 
 （3）pem格式私钥的使用
 
@@ -1355,7 +1355,7 @@ func main() {
 }
 ```
 
-![image-20241116170242065](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116170242065.png)
+![image-20241116170242065](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116170242065.png)
 
 执行成功：
 
@@ -1363,7 +1363,7 @@ func main() {
 
 **由于导出pem格式私钥没有附带address,publicKey。所以用导出的txt形式做对比**
 
-![image-20241116170650246](C:\Users\20405\AppData\Roaming\Typora\typora-user-images\image-20241116170650246.png)
+![image-20241116170650246](https://gitee.com/kkvb/upload-images/raw/master/picGo.assets/image-20241116170650246.png)
 
 ## 四，小结：
 
